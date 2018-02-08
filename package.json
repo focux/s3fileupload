@@ -1,0 +1,47 @@
+{
+  "name": "File-upload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:dev": "webpack",
+    "build:prod": "webpack -p --env production",
+    "dev-server": "webpack-dev-server",
+    "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run build:prod"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.190.0",
+    "aws-signature-v4": "^1.2.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.18.2",
+    "crypto-js": "^3.1.9-1",
+    "css-loader": "^0.28.7",
+    "express": "^4.16.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "fine-uploader": "^5.15.6",
+    "fine-uploader-wrappers": "^1.0.1",
+    "node-sass": "^4.7.2",
+    "react": "^16.2.0",
+    "react-addons-shallow-compare": "^15.6.2",
+    "react-dom": "^16.2.0",
+    "react-fine-uploader": "^1.0.9",
+    "react-transition-group": "^1.2.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.9.7"
+  }
+}
