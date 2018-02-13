@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build:dev": "webpack",
-    "build:prod": "webpack -p --env production",
+    "build:prod": "webpack -p",
     "dev-server": "webpack-dev-server",
     "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "start": "node server/server.js",
-    "heroku-postbuild": "npm run build:prod"
+    "heroku-postbuild": "npm run build:prod",
+    "start:dev": "nodemon --exec npx babel-node -- ./server/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -36,12 +37,15 @@
     "react-addons-shallow-compare": "^15.6.2",
     "react-dom": "^16.2.0",
     "react-fine-uploader": "^1.0.9",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-transition-group": "^1.2.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0"
   },
   "devDependencies": {
+    "nodemon": "^1.14.12",
     "webpack-dev-server": "^2.9.7"
   }
 }

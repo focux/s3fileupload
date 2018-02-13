@@ -42,6 +42,10 @@ app.delete("/s3handler/*", function(req, res) {
     });
 });
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(publicPath, 'index.html'));
+});
+
 function signRequest(req, res) {
     if (req.body.headers) {
         signRestRequest(req, res);

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FileUploader from './components/FileUploader';
+import AppRouter from './router/AppRouter';
 
 const jsx = (
-    <FileUploader />
+    <AppRouter />
 );
 ReactDOM.render(jsx, document.getElementById('app'));
