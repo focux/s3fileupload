@@ -8,10 +8,9 @@ import RetryButton from 'react-fine-uploader/retry-button';
 import Status from 'react-fine-uploader/status';
 import Filename from 'react-fine-uploader/filename';
 import ProgressBar from 'react-fine-uploader/progress-bar';
-import '../../node_modules/react-fine-uploader/gallery/gallery.css'
+import '../../node_modules/react-fine-uploader/gallery/gallery.css';
 
 export default class FileUploader extends Component {
-
   state = {
     submittedFiles: []
   };
@@ -38,46 +37,48 @@ export default class FileUploader extends Component {
     });
   }
 
-  componentWillMount() {
-    
-  }
-
   componentDidMount() {
     this.uploader.on('statusChange', (id, oldStatus, newStatus) => {
-        if (newStatus === 'submitted') {
-            const submittedFiles = this.state.submittedFiles
+      if (newStatus === 'submitted') {
+        const submittedFiles = this.state.submittedFiles;
 
-            submittedFiles.push(id)
-            this.setState({ submittedFiles })
-        }
-    })
-}
-
+        submittedFiles.push(id);
+        this.setState({ submittedFiles });
+      }
+    });
+  }
 
   render() {
-    console.log(this.state);
     return (
       <div>
-      <ProgressBar uploader={this.uploader} className='react-fine-uploader-gallery-progress-bar' style={{ display: 'block', position: 'relative' }}/>
-      <FileInput multiple accept='image/*' uploader={ this.uploader }>
-      <Dropzone style={ { border: '1px dotted', height: 200, width: 200, display: 'block', marginTop: '80px' } }
-              uploader={this.uploader}
-    >
-      Drop or click to upload a File
-    </Dropzone>
-    </FileInput>
-   
-    {
-      this.state.submittedFiles.map(id => (
-           <div key={id}>
-           <Status id={id} uploader={this.uploader} />
-              <Thumbnail id={id} uploader={this.uploader}/>
-              <Filename id={ id } uploader={ this.uploader } />
-              <RetryButton id={id} uploader={this.uploader}/>
-             
-           </div>
-       ))
-   }
+        <ProgressBar
+          uploader={this.uploader}
+          className="react-fine-uploader-gallery-progress-bar"
+          style={{ display: 'block', position: 'relative' }}
+        />
+        <Dropzone
+          style={{
+            border: '1px dotted',
+            height: 200,
+            width: 200,
+            display: 'block',
+            marginTop: '80px'
+          }}
+          uploader={this.uploader}
+        >
+          <FileInput multiple accept="image/*" uploader={this.uploader}>
+          Drop or <button type="button">click here</button> to upload a file.
+          </FileInput>
+        </Dropzone>
+
+        {this.state.submittedFiles.map(id => (
+          <div key={id}>
+            <Status id={id} uploader={this.uploader} />
+            <Thumbnail id={id} uploader={this.uploader} />
+            <Filename id={id} uploader={this.uploader} />
+            <RetryButton id={id} uploader={this.uploader} />
+          </div>
+        ))}
       </div>
     );
   }
